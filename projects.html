@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chaya Microfinance</title>
   <style>
     body {
@@ -11,57 +11,49 @@
       background-color: #f5fdf7;
       color: #222;
     }
-     .title {
-  font-size: 48px;
-  color: white;
-  margin: 0 auto;
-  font-weight: bold;
-  text-align: center;
-  flex-grow: 1;
-  margin-left: 0px; /* Adjust the value as needed */
-  display: flex;
-  justify-content: center;
-}
-
-   .hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 36px;
-  font-weight: bold;
-  color: #2e7d32;
-  text-align: center;
-  margin-left: 30px;
-}
-
-
+    .title {
+      font-size: 48px;
+      color: white;
+      margin: 0 auto;
+      font-weight: bold;
+      text-align: center;
+      flex-grow: 1;
+      margin-left: 0px; 
+      display: flex;
+      justify-content: center;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #2e7d32;
+      text-align: center;
+      margin-left: 30px;
+    }
     .container {
       width: 95%;
       max-width: 1500px;
       margin: 0 auto;
     }
-
-   .navbar {
-  background-color: #2e7d32;
-  color: white;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 999; /* Makes sure it stays above other content */
-}
-
-   .navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-
+    .navbar {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
     .logo {
       height: 70px;
     }
-
     nav ul {
       list-style: none;
       display: flex;
@@ -69,32 +61,28 @@
       margin: 0;
       padding: 0;
     }
-
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-
     nav ul li a:hover {
       text-decoration: underline;
       background: #ffffff;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       transform: translateY(-3px);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-    0 0 20px rgba(255, 255, 255, 0.5),
-    0 0 30px rgba(255, 255, 255, 0.3);
-  transition: box-shadow 0.3s ease-in-out;
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.7),
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(255, 255, 255, 0.3);
+      transition: box-shadow 0.3s ease-in-out;
     }
-
-
-h1 {
-  color: #2e7d32;
-  font-size: 40px;
-  display: inline;
-}
-
+    h1 {
+      color: #2e7d32;
+      font-size: 40px;
+      display: inline;
+    }
     .about, .branches, .contact {
       padding: 60px 20px;
       background-color: #ffffff;
@@ -102,172 +90,203 @@ h1 {
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-
     h2 {
       color: #2e7d32;
     }
-
     footer {
       background-color: #1b5e20;
       color: white;
       text-align: center;
       padding: 5px;
     }
-
     ul {
       padding-left: 20px;
     }
-
     @media (max-width: 768px) {
       nav ul {
         flex-direction: column;
         gap: 10px;
       }
-
       .hero h1 {
         font-size: 32px;
       }
-
       .hero p {
         font-size: 16px;
       }
+      .relief-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+      .relief-container img {
+        max-width: 100% !important;
+        margin-top: 20px;
+      }
     }
-    .p2{
-text-align: end;
-font-size: 11px;
-font-family: 'Times New Roman', Times, serif;
-
+    .p2 {
+      text-align: end;
+      font-size: 11px;
+      font-family: 'Times New Roman', Times, serif;
     }
   </style>
 </head>
 <body>
-    
+  
   <header class="navbar">
-    
     <div class="container">
-  <img src="logo.png" alt="Chaya Logo" class="logo">
-  <h1 class="title">Chaya</h1>
-  <nav>
-    <ul>
-      <li><a href='index.html'>Home</a></li>
-    </ul>
-  </nav>
-</div>
+      <img src="logo.png" alt="Chaya Logo" class="logo" />
+      <h1 class="title">Chaya</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-<section>
-<div class="hero">Projects</div>
+  
+  <section>
+    <div class="hero">Projects</div>
   </section>
-  <section class="about" >
+  
+  <section class="about">
     <div class="container">
       <h2> Scholarship: </h2>
-      <p>Education is one of the most powerful tools for personal and social development. <br>It provides opportunities and development of knowledge and skills necessary to succeed in personal life and contribute to society. </p>
-      <ul><li><strong>Project duration and coverage:</strong><br> •	From 2015 –till now <br>•	About 3000 students have been given scholarships of schools, colleges and universities Student.
-</li></ul>
+      <p>
+        Education is one of the most powerful tools for personal and social development. <br />
+        It provides opportunities and development of knowledge and skills necessary to succeed in personal life and contribute to society.
+      </p>
+      <ul>
+        <li>
+          <strong>Project duration and coverage:</strong><br />
+          • From 2015 –till now <br />
+          • About 3000 students have been given scholarships of schools, colleges and universities Student.
+        </li>
+      </ul>
     </div>
   </section>
-<section class="about">
+  
+  <section class="about">
     <div class="container">
       <h2> Pre-primary school:</h2>
-      <p>CHAYA conducts pre-primary school programs to make school-oriented children especially <br>those who do not have access to school or do not attend school due to a distance from their houses.</p>
-    <ul>
-      <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now<br>
-        •	We had two pre-primary schools running
-</li>
-</ul>
+      <p>
+        CHAYA conducts pre-primary school programs to make school-oriented children especially <br />
+        those who do not have access to school or do not attend school due to a distance from their houses.
+      </p>
+      <ul>
+        <li>
+          <strong>Project duration and coverage: </strong><br />
+          • From 2015 –till now<br />
+          • We had two pre-primary schools running
+        </li>
+      </ul>
     </div>
   </section>
+  
   <section class="branches" id="branches">
     <div class="container">
       <h2> Safe drinking water: </h2>
-      <p>We believe that providing safe water for all is essential for human survival and environmental balance. <br>And for this purpose, we conduct awareness activities among people about the importance of safe water and water pollution.</p>
+      <p>
+        We believe that providing safe water for all is essential for human survival and environmental balance. <br />
+        And for this purpose, we conduct awareness activities among people about the importance of safe water and water pollution.
+      </p>
       <ul>
-        <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now <br>
-•	Tube wells have been distributed to a total of 410 families and 115 educational and religious institutions.<br>
-•	Apart from this, a total of 150 awareness programs about clean water have been conducted at various union and ward levels.
-
-</li>
+        <li>
+          <strong>Project duration and coverage: </strong><br />
+          • From 2015 –till now <br />
+          • Tube wells have been distributed to a total of 410 families and 115 educational and religious institutions.<br />
+          • Apart from this, a total of 150 awareness programs about clean water have been conducted at various union and ward levels.
+        </li>
       </ul>
     </div>
   </section>
-
+  
   <section class="branches" id="branches">
     <div class="container">
       <h2> Distribution of winter clothes: </h2>
-      <p>CHAYA distributes winter clothes to the needy people during the winter season as a kind and charitable act, which helps to keep them warm and comfortable. <br>And for this purpose, we conduct awareness activities among people about the importance of safe water and water pollution.</p>
+      <p>
+        CHAYA distributes winter clothes to the needy people during the winter season as a kind and charitable act, which helps to keep them warm and comfortable. <br />
+        And for this purpose, we conduct awareness activities among people about the importance of safe water and water pollution.
+      </p>
       <ul>
-        <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now. <br>
-•	A total of 3500 blankets have been distributed to the poor, disabled, widows and elderly people.
-</li>
-      </ul>
-    </div>
-  </section>
-<section class="branches" id="branches">
-    <div class="container">
-      <h2> Relief activities: </h2>
-      <p>Relief activities are essential during crisis or natural calamities to provide help to victims of various natural calamities.</p>
-      <ul>
-        <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now. <br>
-•	Relief has been distributed to a total of 1,000 families during floods.
-</li>
+        <li>
+          <strong>Project duration and coverage: </strong><br />
+          • From 2015 –till now. <br />
+          • A total of 3500 blankets have been distributed to the poor, disabled, widows and elderly people.
+        </li>
       </ul>
     </div>
   </section>
   <section class="branches" id="branches">
+    <div class="container relief-container" style="display: flex; align-items: center; gap: 20px;">
+      <div style="flex: 1;">
+        <h2> Relief activities: </h2>
+        <p>Relief activities are essential during crisis or natural calamities to provide help to victims of various natural calamities.</p>
+        <ul>
+          <li><strong>Project duration and coverage: </strong><br /> • From 2015 –till now. <br /> • Relief has been distributed to a total of 1,000 families during floods.</li>
+        </ul>
+      </div>
+      <div style="flex-shrink: 0;">
+        <img src="123.jpg" alt="Relief activities image" style="max-width: 300px; width: 100%; height: auto; border-radius: 8px;" />
+      </div>
+    </div>
+  </section>
+  
+  <section class="branches" id="branches">
     <div class="container">
-      <h2> Emergency support:  </h2><ul>
-      <p>•	An immediate assistance program is a program that works to provide emergency assistance to individuals or communities facing unexpected or emergency situations. <br>
-•	Our organization conducts activities such as cash payment for medical treatment,<br>‎ ‎  construction of houses for people suddenly made homeless due to cyclone and fire accidents as part of the immediate relief program.
-</p>
+      <h2> Emergency support:  </h2>
+      <ul>
+        <p>
+          • An immediate assistance program is a program that works to provide emergency assistance to individuals or communities facing unexpected or emergency situations. <br />
+          • Our organization conducts activities such as cash payment for medical treatment,<br />‎ ‎  construction of houses for people suddenly made homeless due to cyclone and fire accidents as part of the immediate relief program.
+        </p>
       </ul>
     </div>
   </section>
+  
   <section class="branches" id="branches">
     <div class="container">
       <h2> Sanitation:  </h2>
-      <p>•	CHAYA believes that sanitation is of immense importance in protecting the environment and health. <br>
-•	Hence we conduct awareness programs to educate people about the importance of sanitation and <br>‎ ‎ provide them with the necessary knowledge to maintain good hygiene practices.
-</p>
+      <p>
+        • CHAYA believes that sanitation is of immense importance in protecting the environment and health. <br />
+        • Hence we conduct awareness programs to educate people about the importance of sanitation and <br />‎ ‎ provide them with the necessary knowledge to maintain good hygiene practices.
+      </p>
       <ul>
-        <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now. <br>
-•	Hygienic toilets have been distributed to 350 families and 110 educational and religious institutions. 
-</li>
+        <li><strong>Project duration and coverage: </strong><br /> • From 2015 –till now. <br /> • Hygienic toilets have been distributed to 350 families and 110 educational and religious institutions. </li>
       </ul>
     </div>
   </section>
-   <section class="branches" id="branches">
+  
+  <section class="branches" id="branches">
     <div class="container">
       <h2>IGA (Income Generated Activities): </h2>
-      <p>•	CHAYA organization helps the poor people to overcome from their financial situation  </p>
-    <ul>
-        <li><strong>Project duration and coverage: </strong><br> •	From 2015 –till now. <br>
- •	Provides financial assistance to 50 families 
-</li>
+      <p>• CHAYA organization helps the poor people to overcome from their financial situation  </p>
+      <ul>
+        <li><strong>Project duration and coverage: </strong><br /> • From 2015 –till now. <br /> • Provides financial assistance to 50 families </li>
       </ul>
     </div>
   </section>
+  
   <section class="branches" id="branches">
     <div class="container">
       <h2>Other Activities:  </h2>
       <p>CHAYA organization donates on various activities  </p>
-    <ul>
-        <li>Chaya organization distributes cow and goat meat to 115 poor people during Eid -ul -Adha. 
-</li>
+      <ul>
+        <li>Chaya organization distributes cow and goat meat to 115 poor people during Eid -ul -Adha. </li>
       </ul>
     </div>
   </section>
+  
   <footer>
     <div class="container">
       <p>&copy; 2025 Chaya. All rights reserved.</p>
     </div>
     <div class="p2">
-    <p2>Developed by Zayan</p2>
+      <p2>Developed by Zayan</p2>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       console.log('Chaya Microfinance site loaded.');
-
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
