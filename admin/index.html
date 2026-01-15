@@ -5,26 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Admin Panel - Chaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom Admin Panel Styles */
+    :root {
+      --primary-color: #0d5c2f;
+      --primary-hover: #0a4a26;
+      --text-dark: #1a1a1a;
+      --text-light: #666;
+      --bg-light: #f8f9fa;
+      --border-color: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+    }
+
+    /* Override Decap CMS default styles */
+    [data-slate-editor] {
+      font-family: 'Inter', 'Noto Sans Bengali', sans-serif !important;
+    }
+
+    /* Custom header branding */
+    header {
+      background: var(--primary-color) !important;
+    }
+
+    /* Login page customization */
+    .nc-app-root [class*="LoginButton"] {
+      background: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+    }
+
+    .nc-app-root [class*="LoginButton"]:hover {
+      background: var(--primary-hover) !important;
+    }
+
+    /* Sidebar styling */
+    [class*="SidebarNavLink"][class*="active"] {
+      background: var(--primary-color) !important;
+    }
+
+    /* Button styling */
+    button[class*="ToolbarButton"],
+    button[class*="PublishButton"] {
+      background: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+    }
+
+    /* Better Bengali text rendering */
+    input, textarea, [contenteditable] {
+      font-family: 'Inter', 'Noto Sans Bengali', sans-serif !important;
+    }
+
+    /* Collection labels */
+    [class*="CollectionLabel"] {
+      font-family: 'Inter', 'Noto Sans Bengali', sans-serif !important;
+    }
+  </style>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Initialize the CMS
+    // Initialize the CMS with GitHub OAuth via Cloudflare Worker
     CMS.init({
       config: {
         backend: {
           name: 'github',
           repo: 'zayanzakir2211/chaya',
           branch: 'main',
-          site_domain: 'chayabd.netlify.app'
+          base_url: 'https://chaya-oauth.zayanzakir.workers.dev',
+          auth_endpoint: 'auth'
         },
         media_folder: 'assets',
         public_folder: '/assets',
+        slug: {
+          encoding: 'unicode',
+          clean_accents: false
+        },
         collections: [
           {
             name: 'jobs',
-            label: 'নিয়োগ বিজ্ঞপ্তি (Job Circulars)',
+            label: '📋 নিয়োগ বিজ্ঞপ্তি (Job Circulars)',
             label_singular: 'Job Circular',
             folder: '_data/jobs',
             create: true,
@@ -32,20 +95,21 @@
             slug: '{{slug}}',
             extension: 'json',
             format: 'json',
+            summary: '{{position}} - {{deadline}}',
             fields: [
-              { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
-              { label: 'তারিখ (Date)', name: 'date', widget: 'string', default: '' },
-              { label: 'পদের নাম (Position)', name: 'position', widget: 'string' },
+              { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true, hint: 'Uncheck to hide this job from the website' },
+              { label: 'তারিখ (Date)', name: 'date', widget: 'string', default: '', hint: 'e.g., ০৩-০৮-২০২৫' },
+              { label: 'পদের নাম (Position)', name: 'position', widget: 'string', hint: 'e.g., ঋণ কর্মকর্তা' },
               { label: 'পদের সংখ্যা (Vacancies)', name: 'vacancies', widget: 'string', default: '০১ জন' },
               { label: 'শিক্ষাগত যোগ্যতা (Education)', name: 'education', widget: 'string' },
-              { label: 'বয়স (Age)', name: 'age', widget: 'string' },
+              { label: 'বয়স (Age)', name: 'age', widget: 'string', hint: 'e.g., ২২-৩০ বছর' },
               { label: 'প্রশিক্ষণকাল (Training Period)', name: 'training_period', widget: 'string', required: false },
               { label: 'বেতন (Salary)', name: 'salary', widget: 'string' },
               { label: 'ভাতা (Allowance)', name: 'allowance', widget: 'string', required: false },
               { label: 'মোট বেতন (Total Salary)', name: 'total_salary', widget: 'string' },
-              { label: 'বিশেষ যোগ্যতা (Special Requirements)', name: 'special_requirements', widget: 'list', field: { label: 'যোগ্যতা', name: 'requirement', widget: 'string' } },
+              { label: 'বিশেষ যোগ্যতা (Special Requirements)', name: 'special_requirements', widget: 'list', field: { label: 'যোগ্যতা', name: 'requirement', widget: 'string' }, hint: 'Click + to add each requirement' },
               { label: 'প্রয়োজনীয় কাগজপত্র (Documents)', name: 'documents', widget: 'list', field: { label: 'কাগজ', name: 'document', widget: 'string' } },
-              { label: 'আবেদনের শেষ তারিখ (Deadline)', name: 'deadline', widget: 'string' },
+              { label: 'আবেদনের শেষ তারিখ (Deadline)', name: 'deadline', widget: 'string', hint: 'e.g., ২০ আগস্ট ২০২৫' },
               { label: 'আবেদনের সময় (Time)', name: 'deadline_time', widget: 'string', default: 'বিকাল ৫.০০ ঘটিকা' },
               { label: 'জমার ঠিকানা (Submission Address)', name: 'address', widget: 'text' },
               { label: 'পরীক্ষার স্থান (Exam Location)', name: 'exam_location', widget: 'string' },
@@ -54,7 +118,8 @@
           },
           {
             name: 'jobs_manifest',
-            label: 'চাকরি ম্যানিফেস্ট (Jobs List)',
+            label: '📁 চাকরি ম্যানিফেস্ট (Jobs List)',
+            description: 'Add filenames of new jobs here so they appear on the website',
             files: [
               {
                 name: 'manifest',
@@ -65,6 +130,7 @@
                     label: 'Job Files',
                     name: 'files',
                     widget: 'list',
+                    hint: 'Add the filename (without path) of each job JSON file',
                     field: { label: 'Filename', name: 'file', widget: 'string' }
                   }
                 ]
@@ -73,7 +139,7 @@
           },
           {
             name: 'projects',
-            label: 'প্রকল্প (Projects)',
+            label: '🏗️ প্রকল্প (Projects)',
             label_singular: 'Project',
             folder: '_data/projects',
             create: true,
@@ -81,35 +147,42 @@
             slug: '{{fields.order}}-{{slug}}',
             extension: 'json',
             format: 'json',
+            summary: '{{order}}. {{title}}',
+            sortable_fields: ['order', 'title'],
             fields: [
               { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
-              { label: 'ক্রম (Order)', name: 'order', widget: 'number', default: 1 },
+              { label: 'ক্রম (Order)', name: 'order', widget: 'number', default: 1, hint: 'Display order on website (1 = first)' },
               { label: 'শিরোনাম (Title)', name: 'title', widget: 'string' },
               { label: 'বাংলা শিরোনাম (Bengali Title)', name: 'title_bn', widget: 'string', required: false },
               { label: 'বিবরণ (Description)', name: 'description', widget: 'text' },
-              { label: 'ছবি (Image)', name: 'image', widget: 'image' },
-              { label: 'পরিসংখ্যান ১ - সংখ্যা (Stat 1 Number)', name: 'stat1_number', widget: 'string' },
-              { label: 'পরিসংখ্যান ১ - লেবেল (Stat 1 Label)', name: 'stat1_label', widget: 'string' },
+              { label: 'ছবি (Image)', name: 'image', widget: 'image', hint: 'Drag and drop or click to upload' },
+              { label: 'পরিসংখ্যান ১ - সংখ্যা (Stat 1 Number)', name: 'stat1_number', widget: 'string', hint: 'e.g., 3000+' },
+              { label: 'পরিসংখ্যান ১ - লেবেল (Stat 1 Label)', name: 'stat1_label', widget: 'string', hint: 'e.g., Students Supported' },
               { label: 'পরিসংখ্যান ২ - সংখ্যা (Stat 2 Number)', name: 'stat2_number', widget: 'string', required: false },
               { label: 'পরিসংখ্যান ২ - লেবেল (Stat 2 Label)', name: 'stat2_label', widget: 'string', required: false }
             ]
           },
           {
             name: 'other_activities',
-            label: 'অন্যান্য কার্যক্রম (Other Activities)',
+            label: '📝 অন্যান্য কার্যক্রম (Other Activities)',
             files: [
               {
                 name: 'activities',
                 label: 'Other Activities',
                 file: '_data/other-activities.json',
                 fields: [
+                  { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
+                  { label: 'ক্রম (Order)', name: 'order', widget: 'number', default: 8 },
                   { label: 'শিরোনাম (Title)', name: 'title', widget: 'string', default: 'Other Activities' },
                   { label: 'বিবরণ (Description)', name: 'description', widget: 'string' },
                   {
                     label: 'কার্যক্রম তালিকা (Activities List)',
                     name: 'activities',
                     widget: 'list',
-                    field: { label: 'কার্যক্রম', name: 'activity', widget: 'string' }
+                    fields: [
+                      { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
+                      { label: 'বিবরণ (Description)', name: 'description', widget: 'string' }
+                    ]
                   }
                 ]
               }
@@ -117,7 +190,7 @@
           },
           {
             name: 'gallery',
-            label: 'ফটো গ্যালারি (Photo Gallery)',
+            label: '🖼️ ফটো গ্যালারি (Photo Gallery)',
             files: [
               {
                 name: 'photos',
@@ -129,7 +202,8 @@
                     name: 'images',
                     widget: 'list',
                     fields: [
-                      { label: 'ছবি (Image)', name: 'src', widget: 'image' },
+                      { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
+                      { label: 'ছবির URL (Image URL)', name: 'url', widget: 'image' },
                       { label: 'বিবরণ (Alt Text)', name: 'alt', widget: 'string', default: 'Activity' }
                     ]
                   }
@@ -139,7 +213,7 @@
           },
           {
             name: 'settings',
-            label: 'সাইট সেটিংস (Site Settings)',
+            label: '⚙️ সাইট সেটিংস (Site Settings)',
             files: [
               {
                 name: 'general',
