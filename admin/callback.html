@@ -5,38 +5,25 @@
   <title>Authorization</title>
 </head>
 <body>
+  <p>Completing authentication...</p>
   <script>
     (function() {
-      function receiveMessage(e) {
-        console.log("receiveMessage %o", e);
-        window.opener.postMessage(
-          'authorization:github:success:' + JSON.stringify({
-            token: e.data.token,
-            provider: 'github'
-          }),
-          e.origin
-        );
-        window.removeEventListener("message", receiveMessage, false);
-      }
-      
-      window.addEventListener("message", receiveMessage, false);
-      
-      // Notify opener
-      window.opener.postMessage("authorizing:github", "*");
-      
       // Get token from URL hash
-      const token = window.location.hash.match(/access_token=([^&]*)/);
-      if (token) {
-        window.opener.postMessage(
-          'authorization:github:success:' + JSON.stringify({
-            token: token[1],
-            provider: 'github'
-          }),
-          '*'
-        );
-        setTimeout(function() {
-          window.close();
-        }, 100);
+      const params = new URLSearchParams(window.location.hash.substring(1));
+      const token = params.get('access_token');
+      
+      if (token && window.opener) {
+        // Send message in the format Netlify CMS expects
+        window.opener.postMessage({
+          type: 'authorization:github:success',
+          token: token,
+          provider: 'github'
+        }, '*');
+        
+        // Close after a short delay
+        setTimeout(() => window.close(), 500);
+      } else {
+        document.body.innerHTML = '<p style="color:red;">Error: No token found</p>';
       }
     })();
   </script>
