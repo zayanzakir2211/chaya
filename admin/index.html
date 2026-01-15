@@ -13,11 +13,13 @@
     // Initialize the CMS
     CMS.init({
       config: {
-        backend: {
-          name: 'git-gateway',
-          repo: 'zayanzakir2211/chaya',
-          branch: 'main'
-        },
+       backend: {
+  name: 'github',
+  repo: 'zayanzakir2211/chaya',
+  branch: 'main',
+  base_url: 'https://api.netlify.com',
+  auth_endpoint: 'auth'
+},
         media_folder: 'assets',
         public_folder: '/assets',
         collections: [
