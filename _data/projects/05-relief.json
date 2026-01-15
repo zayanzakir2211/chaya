@@ -1,0 +1,12 @@
+{
+  "active": true,
+  "order": 5,
+  "title": "Emergency Relief Work",
+  "title_bn": "জরুরি ত্রাণ কার্যক্রম",
+  "description": "During floods, natural disasters, and emergencies, we provide immediate relief to affected communities. Our relief packages include food, clean water, medicine, and essential supplies to help families survive difficult times. Our organization conducts activities such as cash payment for medical treatment, construction of houses for people suddenly made homeless due to cyclone and fire accidents as part of the immediate relief program.",
+  "image": "/assets/123.jpg",
+  "stat1_number": "Flood Relief",
+  "stat1_label": "Primary Focus",
+  "stat2_number": "Immediate",
+  "stat2_label": "Response Time"
+}

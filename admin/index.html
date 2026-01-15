@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Admin Panel - Chaya</title>
+</head>
+<body>
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Initialize the CMS
+    CMS.init({
+      config: {
+        backend: {
+          name: 'git-gateway',
+          repo: 'zayanzakir2211/chaya',
+          branch: 'main'
+        },
+        media_folder: 'assets',
+        public_folder: '/assets',
+        collections: [
+          {
+            name: 'jobs',
+            label: 'নিয়োগ বিজ্ঞপ্তি (Job Circulars)',
+            label_singular: 'Job Circular',
+            folder: '_data/jobs',
+            create: true,
+            delete: true,
+            slug: '{{slug}}',
+            extension: 'json',
+            format: 'json',
+            fields: [
+              { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
+              { label: 'তারিখ (Date)', name: 'date', widget: 'string', default: '' },
+              { label: 'পদের নাম (Position)', name: 'position', widget: 'string' },
+              { label: 'পদের সংখ্যা (Vacancies)', name: 'vacancies', widget: 'string', default: '০১ জন' },
+              { label: 'শিক্ষাগত যোগ্যতা (Education)', name: 'education', widget: 'string' },
+              { label: 'বয়স (Age)', name: 'age', widget: 'string' },
+              { label: 'প্রশিক্ষণকাল (Training Period)', name: 'training_period', widget: 'string', required: false },
+              { label: 'বেতন (Salary)', name: 'salary', widget: 'string' },
+              { label: 'ভাতা (Allowance)', name: 'allowance', widget: 'string', required: false },
+              { label: 'মোট বেতন (Total Salary)', name: 'total_salary', widget: 'string' },
+              { label: 'বিশেষ যোগ্যতা (Special Requirements)', name: 'special_requirements', widget: 'list', field: { label: 'যোগ্যতা', name: 'requirement', widget: 'string' } },
+              { label: 'প্রয়োজনীয় কাগজপত্র (Documents)', name: 'documents', widget: 'list', field: { label: 'কাগজ', name: 'document', widget: 'string' } },
+              { label: 'আবেদনের শেষ তারিখ (Deadline)', name: 'deadline', widget: 'string' },
+              { label: 'আবেদনের সময় (Time)', name: 'deadline_time', widget: 'string', default: 'বিকাল ৫.০০ ঘটিকা' },
+              { label: 'জমার ঠিকানা (Submission Address)', name: 'address', widget: 'text' },
+              { label: 'পরীক্ষার স্থান (Exam Location)', name: 'exam_location', widget: 'string' },
+              { label: 'অতিরিক্ত তথ্য (Additional Info)', name: 'additional_info', widget: 'text', required: false }
+            ]
+          },
+          {
+            name: 'jobs_manifest',
+            label: 'চাকরি ম্যানিফেস্ট (Jobs List)',
+            files: [
+              {
+                name: 'manifest',
+                label: 'Job Files List',
+                file: '_data/jobs-manifest.json',
+                fields: [
+                  {
+                    label: 'Job Files',
+                    name: 'files',
+                    widget: 'list',
+                    field: { label: 'Filename', name: 'file', widget: 'string' }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'projects',
+            label: 'প্রকল্প (Projects)',
+            label_singular: 'Project',
+            folder: '_data/projects',
+            create: true,
+            delete: true,
+            slug: '{{fields.order}}-{{slug}}',
+            extension: 'json',
+            format: 'json',
+            fields: [
+              { label: 'সক্রিয় (Active)', name: 'active', widget: 'boolean', default: true },
+              { label: 'ক্রম (Order)', name: 'order', widget: 'number', default: 1 },
+              { label: 'শিরোনাম (Title)', name: 'title', widget: 'string' },
+              { label: 'বাংলা শিরোনাম (Bengali Title)', name: 'title_bn', widget: 'string', required: false },
+              { label: 'বিবরণ (Description)', name: 'description', widget: 'text' },
+              { label: 'ছবি (Image)', name: 'image', widget: 'image' },
+              { label: 'পরিসংখ্যান ১ - সংখ্যা (Stat 1 Number)', name: 'stat1_number', widget: 'string' },
+              { label: 'পরিসংখ্যান ১ - লেবেল (Stat 1 Label)', name: 'stat1_label', widget: 'string' },
+              { label: 'পরিসংখ্যান ২ - সংখ্যা (Stat 2 Number)', name: 'stat2_number', widget: 'string', required: false },
+              { label: 'পরিসংখ্যান ২ - লেবেল (Stat 2 Label)', name: 'stat2_label', widget: 'string', required: false }
+            ]
+          },
+          {
+            name: 'other_activities',
+            label: 'অন্যান্য কার্যক্রম (Other Activities)',
+            files: [
+              {
+                name: 'activities',
+                label: 'Other Activities',
+                file: '_data/other-activities.json',
+                fields: [
+                  { label: 'শিরোনাম (Title)', name: 'title', widget: 'string', default: 'Other Activities' },
+                  { label: 'বিবরণ (Description)', name: 'description', widget: 'string' },
+                  {
+                    label: 'কার্যক্রম তালিকা (Activities List)',
+                    name: 'activities',
+                    widget: 'list',
+                    field: { label: 'কার্যক্রম', name: 'activity', widget: 'string' }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'gallery',
+            label: 'ফটো গ্যালারি (Photo Gallery)',
+            files: [
+              {
+                name: 'photos',
+                label: 'Gallery Photos',
+                file: '_data/gallery.json',
+                fields: [
+                  {
+                    label: 'ছবি (Images)',
+                    name: 'images',
+                    widget: 'list',
+                    fields: [
+                      { label: 'ছবি (Image)', name: 'src', widget: 'image' },
+                      { label: 'বিবরণ (Alt Text)', name: 'alt', widget: 'string', default: 'Activity' }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: 'settings',
+            label: 'সাইট সেটিংস (Site Settings)',
+            files: [
+              {
+                name: 'general',
+                label: 'সাধারণ সেটিংস (General Settings)',
+                file: '_data/settings.json',
+                fields: [
+                  { label: 'সংস্থার নাম (Organization Name)', name: 'org_name', widget: 'string', default: 'Chaya' },
+                  { label: 'সংস্থার পূর্ণ নাম (Full Name)', name: 'org_full_name', widget: 'string' },
+                  { label: 'এমআরএ নম্বর (MRA Number)', name: 'mra_number', widget: 'string' },
+                  { label: 'ফোন (Phone)', name: 'phone', widget: 'string' },
+                  { label: 'ইমেইল (Email)', name: 'email', widget: 'string' },
+                  { label: 'ঠিকানা (Address)', name: 'address', widget: 'text' }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

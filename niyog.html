@@ -162,6 +162,30 @@
       margin: 0 auto;
     }
 
+    /* No Jobs Message */
+    .no-jobs {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .no-jobs i {
+      font-size: 48px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .no-jobs h3 {
+      font-size: 24px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .no-jobs p {
+      color: #888;
+    }
+
     /* Job Card */
     .job-card {
       background: #fff;
@@ -258,48 +282,27 @@
       color: #1a1a1a;
     }
 
-    /* How to Apply */
-    .apply-steps {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .apply-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
+    .salary-box {
       background: #f8f9fa;
       padding: 20px;
       border-radius: 8px;
+      line-height: 1.9;
     }
 
-    .step-number {
-      width: 36px;
-      height: 36px;
-      background: #0d5c2f;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      flex-shrink: 0;
+    .salary-box strong {
+      color: #1a1a1a;
     }
 
-    .step-content h4 {
-      font-size: 17px;
-      margin-bottom: 6px;
-    }
-
-    .step-content p {
-      font-size: 15px;
-      color: #666;
-    }
-
-    .step-content a {
+    .salary-highlight {
       color: #0d5c2f;
-      font-weight: 500;
+      font-weight: 600;
+    }
+
+    .submission-box {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 8px;
+      line-height: 1.9;
     }
 
     /* Notice Box */
@@ -315,6 +318,10 @@
       color: #856404;
       font-size: 18px;
       margin-bottom: 10px;
+    }
+
+    .notice-box h4 i {
+      margin-right: 8px;
     }
 
     .notice-box p {
@@ -342,6 +349,7 @@
 
     .contact-icon {
       font-size: 32px;
+      color: #0d5c2f;
       margin-bottom: 12px;
     }
 
@@ -461,6 +469,23 @@
       border-bottom: none;
     }
 
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .loading i {
+      font-size: 48px;
+      color: #0d5c2f;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .nav-container {
@@ -546,103 +571,14 @@
     </div>
   </header>
 
-  <!-- Job Circular -->
+  <!-- Job Circulars - Dynamic Content -->
   <section class="section">
-    <div class="section-container">
-
-      <!-- Job Card -->
-      <div class="job-card">
-        <div class="job-header">
-          <h2>ঋণ কর্মকর্তা নিয়োগ</h2>
-          <p>তারিখ: ০৩-০৮-২০২৫</p>
-        </div>
-
-        <div class="job-body">
-          <!-- About Organization -->
-          <div class="job-section">
-            <h3>সংস্থা সম্পর্কে</h3>
-            <p>"ছায়া" একটি বেসরকারী উন্নয়নমূলক সংস্থা যা, ২০১৫ সাল হতে দরিদ্র জনগোষ্ঠীর জীবনযাত্রার মান উন্নয়নের লক্ষ্যে কার্যক্রম বাস্তবায়ন করে আসছে। সংস্থা মাইক্রোক্রেডিট রেগুলেটরী অথরিটি (এমআরএ) এর সাময়িক অনুমোদন নং: ২০২৩০২১৭৭। বর্তমানে সংস্থার ঋণ কার্যক্রম বাস্তবায়ন ও সম্প্রসারণের নিমিত্তে কুড়িগ্রাম জেলার রৌমারী উপজেলার জন্য নিম্নে উল্লেখিত পদে কর্মী নিয়োগের জন্য যোগ্য প্রার্থীদের নিকট থেকে আবেদন আহ্বান করা যাচ্ছে।</p>
-          </div>
-
-          <!-- Job Info -->
-          <div class="job-section">
-            <h3>পদের বিবরণ</h3>
-            <div class="job-info-grid">
-              <div class="job-info-item">
-                <p class="job-info-label">পদের নাম</p>
-                <p class="job-info-value">ঋণ কর্মকর্তা</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">পদের সংখ্যা</p>
-                <p class="job-info-value">০১ জন</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">কর্মস্থল</p>
-                <p class="job-info-value">রৌমারী, কুড়িগ্রাম</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">আবেদনের শেষ তারিখ</p>
-                <p class="job-info-value">২০ আগস্ট ২০২৫</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Requirements -->
-          <div class="job-section">
-            <h3>শিক্ষাগত যোগ্যতা ও বয়স</h3>
-            <ul>
-              <li>শিক্ষাগত যোগ্যতা: এইচএসসি / স্নাতক</li>
-              <li>বয়স: সর্বোচ্চ ৩২ বছর</li>
-              <li>প্রার্থীর বৈধ ড্রাইভিং লাইসেন্স সহ মোটরসাইকেল থাকতে হবে</li>
-              <li>মাঠ পর্যায়ে মোটরসাইকেল চালাতে হবে</li>
-              <li>নারী প্রার্থীদের অগ্রাধিকার দেয়া হবে</li>
-            </ul>
-          </div>
-
-          <!-- Salary -->
-          <div class="job-section">
-            <h3>বেতন ভাতা</h3>
-            <p style="background: #f8f9fa; padding: 20px; border-radius: 8px; line-height: 1.9;">
-              <strong>প্রশিক্ষণকাল:</strong> ৬ মাস<br>
-              <strong>প্রশিক্ষণকালে বেতন:</strong> ১০,০০০/- টাকা<br>
-              <strong>মোটরসাইকেল ভাতা:</strong> ২,০০০/- টাকা<br>
-              <strong>সর্বসাকুল্যে:</strong> ১২,০০০/- টাকা<br><br>
-              <strong style="color: #0d5c2f;">সফলভাবে প্রশিক্ষণ সম্পন্ন করলে সংস্থার নিয়ম অনুযায়ী স্থায়ী করণ করা হবে।</strong>
-            </p>
-          </div>
-
-          <!-- How to Apply -->
-          <div class="job-section">
-            <h3>আবেদন প্রক্রিয়া</h3>
-            <p style="margin-bottom: 20px;">আবেদনকারী নির্বাহী পরিচালক বরাবর লিখিত আবেদন পত্রের সাথে নিম্নোক্ত কাগজপত্র জমা দিতে হবে:</p>
-            <ul>
-              <li>পূর্ণ জীবন বৃত্তান্ত (মোবাইল নাম্বার উল্লেখসহ)</li>
-              <li>০২ (দুই) কপি সদ্য তোলা পাসপোর্ট সাইজ রঙিন ছবি</li>
-              <li>জাতীয় পরিচয় পত্রের ফটোকপি</li>
-              <li>বৈধ ড্রাইভিং লাইসেন্সের ফটোকপি</li>
-              <li>শিক্ষাগত যোগ্যতা সনদের ফটোকপি</li>
-            </ul>
-          </div>
-
-          <!-- Submission Details -->
-          <div class="job-section">
-            <h3>আবেদন জমা</h3>
-            <p style="background: #e8f5e9; padding: 20px; border-radius: 8px; line-height: 1.9;">
-              <strong>ঠিকানা:</strong> 'ছায়া', কর্তিমারী, যাদুরচর, রৌমারী, কুড়িগ্রাম<br>
-              <strong>শেষ তারিখ:</strong> ২০ আগস্ট ২০২৫ ইং, বিকাল ৫.০০ ঘটিকা পর্যন্ত<br>
-              <strong>জমার পদ্ধতি:</strong> ডাক/কুরিয়ার/সরাসরি প্রেরণ করা যাবে<br>
-              <strong>পরীক্ষার স্থান:</strong> 'ছায়া', প্রধান কার্যালয়, কর্তিমারী বাজার, যাদুরচর, রৌমারী, কুড়িগ্রাম
-            </p>
-          </div>
-
-          <!-- Notice -->
-          <div class="notice-box">
-            <h4><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h4>
-            <p>শুধুমাত্র বাছাইকৃত প্রার্থীদের নিয়োগ পরীক্ষায় অংশগ্রহণের জন্য ডাকা হবে। নারী প্রার্থীদের অগ্রাধিকার দেয়া হবে।</p>
-          </div>
-        </div>
+    <div class="section-container" id="jobsContainer">
+      <!-- Loading State -->
+      <div class="loading">
+        <i class="fas fa-spinner"></i>
+        <p style="margin-top: 20px; color: #666;">লোড হচ্ছে...</p>
       </div>
-
     </div>
   </section>
 
@@ -655,7 +591,7 @@
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-phone"></i></div>
           <h4>ফোন</h4>
-          <p><a href="tel:+8801737772999">+৮৮০১৭৩৭৭৭২৯৯৯</a></p>
+          <p><a href="tel:+8801737772999">+৮৮০ ১৭৩৭-৭৭২৯৯৯</a></p>
         </div>
         <div class="contact-item">
           <div class="contact-icon"><i class="fas fa-envelope"></i></div>
@@ -667,7 +603,7 @@
       <div class="contact-item" style="margin-top: 20px; text-align: center;">
         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
         <h4>অফিসের ঠিকানা</h4>
-        <p>করতিমারী, রৌমারী, কুড়িগ্রাম</p>
+        <p>কর্তিমারী, যাদুরচর, রৌমারী, কুড়িগ্রাম</p>
       </div>
     </div>
   </section>
@@ -716,6 +652,169 @@
         document.getElementById('mobileMenu').classList.remove('active');
       });
     });
+
+    // Load jobs from JSON files
+    async function loadJobs() {
+      const container = document.getElementById('jobsContainer');
+      
+      try {
+        // Fetch jobs manifest
+        const manifestResponse = await fetch('_data/jobs-manifest.json');
+        let jobFiles = [];
+        
+        if (manifestResponse.ok) {
+          const manifest = await manifestResponse.json();
+          jobFiles = manifest.files || [];
+        } else {
+          // Fallback: try known job files
+          jobFiles = ['rin-kormokhorta-2025.json'];
+        }
+        
+        // Fetch all job data
+        const jobs = [];
+        for (const file of jobFiles) {
+          try {
+            const response = await fetch(`_data/jobs/${file}`);
+            if (response.ok) {
+              const job = await response.json();
+              jobs.push(job);
+            }
+          } catch (e) {
+            console.warn(`Could not load job file: ${file}`);
+          }
+        }
+
+        // Filter only active jobs
+        const activeJobs = jobs.filter(job => job.active !== false);
+        
+        if (activeJobs.length === 0) {
+          container.innerHTML = `
+            <div class="no-jobs">
+              <i class="fas fa-briefcase"></i>
+              <h3>বর্তমানে কোনো নিয়োগ বিজ্ঞপ্তি নেই</h3>
+              <p>নতুন নিয়োগ বিজ্ঞপ্তির জন্য অনুগ্রহ করে পরে আবার দেখুন।</p>
+            </div>
+          `;
+          return;
+        }
+
+        // Render all active jobs
+        container.innerHTML = activeJobs.map(job => renderJobCard(job)).join('');
+        
+      } catch (error) {
+        console.error('Error loading jobs:', error);
+        container.innerHTML = `
+          <div class="no-jobs">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>তথ্য লোড করতে সমস্যা হয়েছে</h3>
+            <p>অনুগ্রহ করে পরে আবার চেষ্টা করুন।</p>
+          </div>
+        `;
+      }
+    }
+
+    function renderJobCard(job) {
+      // Build requirements list
+      const requirementsList = (job.special_requirements || [])
+        .map(req => `<li>${req}</li>`)
+        .join('');
+      
+      // Build documents list
+      const documentsList = (job.documents || [])
+        .map(doc => `<li>${doc}</li>`)
+        .join('');
+
+      return `
+        <div class="job-card">
+          <div class="job-header">
+            <h2>${job.position} নিয়োগ</h2>
+            <p>তারিখ: ${job.date}</p>
+          </div>
+
+          <div class="job-body">
+            <!-- About Organization -->
+            <div class="job-section">
+              <h3>সংস্থা সম্পর্কে</h3>
+              <p>"ছায়া" একটি বেসরকারী উন্নয়নমূলক সংস্থা যা, ২০১৫ সাল হতে দরিদ্র জনগোষ্ঠীর জীবনযাত্রার মান উন্নয়নের লক্ষ্যে কার্যক্রম বাস্তবায়ন করে আসছে। সংস্থা মাইক্রোক্রেডিট রেগুলেটরী অথরিটি (এমআরএ) এর সাময়িক অনুমোদন নং: ২০২৩০২১৭৭।</p>
+            </div>
+
+            <!-- Job Info -->
+            <div class="job-section">
+              <h3>পদের বিবরণ</h3>
+              <div class="job-info-grid">
+                <div class="job-info-item">
+                  <p class="job-info-label">পদের নাম</p>
+                  <p class="job-info-value">${job.position}</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">পদের সংখ্যা</p>
+                  <p class="job-info-value">${job.vacancies}</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">কর্মস্থল</p>
+                  <p class="job-info-value">রৌমারী, কুড়িগ্রাম</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">আবেদনের শেষ তারিখ</p>
+                  <p class="job-info-value">${job.deadline}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="job-section">
+              <h3>শিক্ষাগত যোগ্যতা ও বয়স</h3>
+              <ul>
+                <li>শিক্ষাগত যোগ্যতা: ${job.education}</li>
+                <li>বয়স: ${job.age}</li>
+                ${requirementsList}
+              </ul>
+            </div>
+
+            <!-- Salary -->
+            <div class="job-section">
+              <h3>বেতন ভাতা</h3>
+              <div class="salary-box">
+                ${job.training_period ? `<strong>প্রশিক্ষণকাল:</strong> ${job.training_period}<br>` : ''}
+                <strong>প্রশিক্ষণকালে বেতন:</strong> ${job.salary} টাকা<br>
+                ${job.allowance ? `<strong>ভাতা:</strong> ${job.allowance}<br>` : ''}
+                <strong>সর্বসাকুল্যে:</strong> ${job.total_salary} টাকা<br><br>
+                ${job.additional_info ? `<span class="salary-highlight">${job.additional_info}</span>` : ''}
+              </div>
+            </div>
+
+            <!-- How to Apply -->
+            <div class="job-section">
+              <h3>আবেদন প্রক্রিয়া</h3>
+              <p style="margin-bottom: 20px;">আবেদনকারী নির্বাহী পরিচালক বরাবর লিখিত আবেদন পত্রের সাথে নিম্নোক্ত কাগজপত্র জমা দিতে হবে:</p>
+              <ul>
+                ${documentsList}
+              </ul>
+            </div>
+
+            <!-- Submission Details -->
+            <div class="job-section">
+              <h3>আবেদন জমা</h3>
+              <div class="submission-box">
+                <strong>ঠিকানা:</strong> ${job.address}<br>
+                <strong>শেষ তারিখ:</strong> ${job.deadline} ইং, ${job.deadline_time} পর্যন্ত<br>
+                <strong>জমার পদ্ধতি:</strong> ডাক/কুরিয়ার/সরাসরি প্রেরণ করা যাবে<br>
+                <strong>পরীক্ষার স্থান:</strong> ${job.exam_location}
+              </div>
+            </div>
+
+            <!-- Notice -->
+            <div class="notice-box">
+              <h4><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h4>
+              <p>শুধুমাত্র বাছাইকৃত প্রার্থীদের নিয়োগ পরীক্ষায় অংশগ্রহণের জন্য ডাকা হবে। নারী প্রার্থীদের অগ্রাধিকার দেয়া হবে।</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Load jobs when page loads
+    document.addEventListener('DOMContentLoaded', loadJobs);
   </script>
 </body>
 </html>

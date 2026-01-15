@@ -1,0 +1,12 @@
+{
+  "active": true,
+  "order": 2,
+  "title": "Pre-Primary Schools",
+  "title_bn": "প্রাক-প্রাথমিক বিদ্যালয়",
+  "description": "We run pre-primary schools in remote char areas where children have no access to early education. These schools provide foundational learning, preparing young children for formal education and giving them a strong start in life.",
+  "image": "/assets/IMG-20250605-WA0019.jpg",
+  "stat1_number": "2",
+  "stat1_label": "Schools Running",
+  "stat2_number": "Char Areas",
+  "stat2_label": "Target Region"
+}

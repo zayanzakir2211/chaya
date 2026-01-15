@@ -1,0 +1,12 @@
+{
+  "active": true,
+  "order": 6,
+  "title": "Sanitation & Hygiene",
+  "title_bn": "স্যানিটেশন ও স্বাস্থ্যবিধি",
+  "description": "We build sanitary latrines and promote hygiene awareness in communities where open defecation is common. Proper sanitation prevents disease and improves overall community health.",
+  "image": "/assets/IMG-20250605-WA0024.jpg",
+  "stat1_number": "100+",
+  "stat1_label": "Latrines Built",
+  "stat2_number": "Community",
+  "stat2_label": "Health Focus"
+}

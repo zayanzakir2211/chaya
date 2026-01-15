@@ -109,16 +109,13 @@
 
     /* Page Header */
     .page-header {
-      margin-top: 70px;
       position: relative;
-      height: 50vh;
-      min-height: 400px;
+      height: 400px;
+      margin-top: 70px;
       overflow: hidden;
     }
 
     .page-header img {
-      position: absolute;
-      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -126,74 +123,87 @@
 
     .page-header-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(13, 92, 47, 0.85);
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      text-align: center;
+      align-items: center;
+      color: #fff;
       padding: 40px;
     }
 
     .page-header h1 {
-      color: #fff;
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
+      font-size: 48px;
       margin-bottom: 16px;
     }
 
     .page-header p {
-      color: rgba(255,255,255,0.9);
-      font-size: 20px;
-      max-width: 600px;
+      font-size: 18px;
+      opacity: 0.95;
     }
 
     /* Section */
     .section {
-      padding: 100px 40px;
+      padding: 80px 40px;
     }
 
     .section-container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .section-tag {
       color: #0d5c2f;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       margin-bottom: 16px;
     }
 
     .section-title {
-      font-size: clamp(28px, 4vw, 40px);
+      font-size: 36px;
       font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .section-desc {
-      font-size: 17px;
-      color: #555;
-      line-height: 1.8;
-      max-width: 800px;
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+      margin-bottom: 40px;
     }
 
-    /* Project Section */
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 80px 20px;
+      color: #666;
+      font-size: 18px;
+    }
+
+    .loading::after {
+      content: '...';
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: '.'; }
+      40% { content: '..'; }
+      60%, 100% { content: '...'; }
+    }
+
+    /* Project */
     .project {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
+      margin-bottom: 80px;
       align-items: center;
-      padding: 80px 0;
-      border-bottom: 1px solid #eee;
-    }
-
-    .project:last-child {
-      border-bottom: none;
     }
 
     .project.reverse .project-image {
@@ -559,168 +569,12 @@
   <!-- Projects -->
   <section class="section">
     <div class="section-container">
-
-      <!-- Project 1: Scholarship -->
-      <div class="project">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0015.jpg" alt="Scholarship Program">
-        </div>
-        <div class="project-content">
-          <p class="project-number">01</p>
-          <h2 class="project-title">Scholarship Program</h2>
-          <p class="project-text">Our scholarship program supports meritorious students from underprivileged families, enabling them to continue their education. We provide study materials and academic guidance to help students achieve their dreams.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">3000+</div>
-              <div class="project-stat-label">Students Supported</div>
-            </div>
-           
-          </div>
-        </div>
+      <div id="projectsContainer">
+        <div class="loading">Loading projects</div>
       </div>
 
-      <!-- Project 2: Pre-Primary Education -->
-      <div class="project reverse">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0019.jpg" alt="Pre-Primary Schools">
-        </div>
-        <div class="project-content">
-          <p class="project-number">02</p>
-          <h2 class="project-title">Pre-Primary Schools</h2>
-          <p class="project-text">We run pre-primary schools in remote char areas where children have no access to early education. These schools provide foundational learning, preparing young children for formal education and giving them a strong start in life.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">2</div>
-              <div class="project-stat-label">Schools Running</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Char Areas</div>
-              <div class="project-stat-label">Target Region</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: Safe Water -->
-      <div class="project">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0005.jpg" alt="Safe Water Project">
-        </div>
-        <div class="project-content">
-          <p class="project-number">03</p>
-          <h2 class="project-title">Safe Drinking Water</h2>
-          <p class="project-text">Access to clean drinking water is a basic necessity. We install tube wells and water purification systems in communities, schools, and institutions to ensure families have access to safe, arsenic-free drinking water.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">410+</div>
-              <div class="project-stat-label">Families Served</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Arsenic-Free</div>
-              <div class="project-stat-label">Water Quality</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Winter Clothes -->
-      <div class="project reverse">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0012.jpg" alt="Winter Clothes Distribution">
-        </div>
-        <div class="project-content">
-          <p class="project-number">04</p>
-          <h2 class="project-title">Winter Clothes Distribution</h2>
-          <p class="project-text">Every winter, we distribute blankets and warm clothing to vulnerable families in remote areas. The harsh winter months can be life-threatening for the poor without adequate protection from the cold.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">3500+</div>
-              <div class="project-stat-label">Blankets Distributed</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Annual</div>
-              <div class="project-stat-label">Campaign</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 5: Relief Work -->
-      <div class="project">
-        <div class="project-image">
-          <img src="assets/123.jpg" alt="Relief Work">
-        </div>
-        <div class="project-content">
-          <p class="project-number">05</p>
-          <h2 class="project-title">Emergency Relief Work</h2>
-          <p class="project-text">During floods, natural disasters, and emergencies, we provide immediate relief to affected communities. Our relief packages include food, clean water, medicine, and essential supplies to help families survive difficult times. Our organization conducts activities such as cash payment for medical treatment, construction of houses for people suddenly made homeless due to cyclone and fire accidents as part of the immediate relief program.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">Flood Relief</div>
-              <div class="project-stat-label">Primary Focus</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Immediate</div>
-              <div class="project-stat-label">Response Time</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 6: Sanitation -->
-      <div class="project reverse">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0024.jpg" alt="Sanitation Program">
-        </div>
-        <div class="project-content">
-          <p class="project-number">06</p>
-          <h2 class="project-title">Sanitation & Hygiene</h2>
-          <p class="project-text">We build sanitary latrines and promote hygiene awareness in communities where open defecation is common. Proper sanitation prevents disease and improves overall community health.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">100+</div>
-              <div class="project-stat-label">Latrines Built</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Community</div>
-              <div class="project-stat-label">Health Focus</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 7: IGA -->
-      <div class="project">
-        <div class="project-image">
-          <img src="assets/IMG-20250605-WA0008.jpg" alt="Income Generating Activities">
-        </div>
-        <div class="project-content">
-          <p class="project-number">07</p>
-          <h2 class="project-title">Income Generating Activities</h2>
-          <p class="project-text">We provide microfinance support and training for income-generating activities, empowering families to become self-reliant. From small businesses to agricultural projects, we help create sustainable livelihoods.</p>
-          <div class="project-stats">
-            <div class="project-stat">
-              <div class="project-stat-number">MRA Approved</div>
-              <div class="project-stat-label">Microfinance License</div>
-            </div>
-            <div class="project-stat">
-              <div class="project-stat-number">Sustainable</div>
-              <div class="project-stat-label">Development</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Other Activities -->
-      <div class="other-activities">
-        <p class="project-number">08</p>
-        <h2 class="project-title">Other Activities</h2>
-        <p class="project-text">CHAYA organization donates on various activities to support the community.</p>
-        <ul class="activities-list">
-          <li>Chaya organization distributes cow and goat meat to 115 poor people during Eid-ul-Adha</li>
-        </ul>
-      </div>
-
+      <!-- Other Activities Section -->
+      <div id="otherActivitiesContainer"></div>
     </div>
   </section>
 
@@ -731,31 +585,8 @@
       <h2 class="section-title">Our Work in Action</h2>
       <p class="section-desc">A glimpse into our community outreach and development programs.</p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0001.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0003.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0005.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0007.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0010.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0015.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0018.jpg" alt="Activity">
-        </div>
-        <div class="gallery-item">
-          <img src="assets/IMG-20250605-WA0025.jpg" alt="Activity">
-        </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="loading">Loading gallery</div>
       </div>
     </div>
   </section>
@@ -804,15 +635,177 @@
   </footer>
 
   <script>
+    // Load all projects dynamically
+    async function loadProjects() {
+      try {
+        const projectFiles = [
+          '01-scholarship',
+          '02-preprimary',
+          '03-safe-water',
+          '04-winter-clothes',
+          '05-relief-work',
+          '06-sanitation',
+          '07-iga'
+        ];
+
+        const projectsPromises = projectFiles.map(file => 
+          fetch(`_data/projects/${file}.json`)
+            .then(res => res.json())
+            .catch(err => {
+              console.error(`Failed to load ${file}:`, err);
+              return null;
+            })
+        );
+
+        const projects = await Promise.all(projectsPromises);
+        
+        // Filter out failed loads and inactive projects
+        const activeProjects = projects
+          .filter(p => p && p.active)
+          .sort((a, b) => a.order - b.order);
+
+        if (activeProjects.length === 0) {
+          document.getElementById('projectsContainer').innerHTML = 
+            '<p class="section-desc">No projects available at the moment.</p>';
+          return;
+        }
+
+        // Render projects
+        const projectsHTML = activeProjects.map((project, index) => {
+          const isReverse = index % 2 === 1;
+          return renderProjectCard(project, isReverse);
+        }).join('');
+
+        document.getElementById('projectsContainer').innerHTML = projectsHTML;
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        document.getElementById('projectsContainer').innerHTML = 
+          '<p class="section-desc">Failed to load projects. Please try again later.</p>';
+      }
+    }
+
+    // Render a single project card
+    function renderProjectCard(project, isReverse) {
+      const stats = [];
+      if (project.stat1_number && project.stat1_label) {
+        stats.push(`
+          <div class="project-stat">
+            <div class="project-stat-number">${project.stat1_number}</div>
+            <div class="project-stat-label">${project.stat1_label}</div>
+          </div>
+        `);
+      }
+      if (project.stat2_number && project.stat2_label) {
+        stats.push(`
+          <div class="project-stat">
+            <div class="project-stat-number">${project.stat2_number}</div>
+            <div class="project-stat-label">${project.stat2_label}</div>
+          </div>
+        `);
+      }
+
+      return `
+        <div class="project ${isReverse ? 'reverse' : ''}">
+          <div class="project-image">
+            <img src="${project.image}" alt="${project.title}">
+          </div>
+          <div class="project-content">
+            <p class="project-number">${String(project.order).padStart(2, '0')}</p>
+            <h2 class="project-title">${project.title}</h2>
+            <p class="project-text">${project.description}</p>
+            ${stats.length > 0 ? `<div class="project-stats">${stats.join('')}</div>` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    // Load other activities
+    async function loadOtherActivities() {
+      try {
+        const response = await fetch('_data/other-activities.json');
+        const data = await response.json();
+
+        if (!data.active || !data.activities || data.activities.length === 0) {
+          return;
+        }
+
+        const activitiesHTML = data.activities
+          .filter(activity => activity.active)
+          .map(activity => `<li>${activity.description}</li>`)
+          .join('');
+
+        const otherActivitiesHTML = `
+          <div class="other-activities">
+            <p class="project-number">${String(data.order).padStart(2, '0')}</p>
+            <h2 class="project-title">${data.title}</h2>
+            <p class="project-text">${data.description}</p>
+            <ul class="activities-list">
+              ${activitiesHTML}
+            </ul>
+          </div>
+        `;
+
+        document.getElementById('otherActivitiesContainer').innerHTML = otherActivitiesHTML;
+      } catch (error) {
+        console.error('Error loading other activities:', error);
+      }
+    }
+
+    // Load gallery
+    async function loadGallery() {
+      try {
+        const response = await fetch('_data/gallery.json');
+        const data = await response.json();
+
+        if (!data.images || data.images.length === 0) {
+          document.getElementById('galleryGrid').innerHTML = 
+            '<p class="section-desc">No photos available at the moment.</p>';
+          return;
+        }
+
+        const activeImages = data.images.filter(img => img.active);
+
+        if (activeImages.length === 0) {
+          document.getElementById('galleryGrid').innerHTML = 
+            '<p class="section-desc">No photos available at the moment.</p>';
+          return;
+        }
+
+        const galleryHTML = activeImages.map(image => `
+          <div class="gallery-item">
+            <img src="${image.url}" alt="${image.alt || 'Activity'}">
+          </div>
+        `).join('');
+
+        document.getElementById('galleryGrid').innerHTML = galleryHTML;
+      } catch (error) {
+        console.error('Error loading gallery:', error);
+        document.getElementById('galleryGrid').innerHTML = 
+          '<p class="section-desc">Failed to load gallery. Please try again later.</p>';
+      }
+    }
+
+    // Initialize everything
+    function init() {
+      loadProjects();
+      loadOtherActivities();
+      loadGallery();
+    }
+
+    // Toggle mobile menu
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('active');
     }
 
+    // Close mobile menu when clicking links
     document.querySelectorAll('.mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('mobileMenu').classList.remove('active');
       });
     });
+
+    // Load content when page loads
+    document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
 </html>
