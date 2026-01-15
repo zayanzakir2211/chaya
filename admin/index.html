@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Admin Panel - Chaya</title>
-  <style>
-    body { font-family: system-ui, -apple-system, sans-serif; }
-  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+  <script>
+    // Handle OAuth callback message
+    window.addEventListener('message', function(e) {
+      if (e.data && typeof e.data === 'string' && e.data.startsWith('authorization:')) {
+        console.log('Auth message received:', e.data);
+      }
+    });
+  </script>
 </body>
 </html>

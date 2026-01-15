@@ -10,49 +10,30 @@ public_folder: /assets
 
 collections:
   - name: jobs
-    label: "নিয়োগ বিজ্ঞপ্তি (Job Circulars)"
+    label: "Job Circulars"
     folder: "_data/jobs"
     create: true
     delete: true
     extension: json
     format: json
-    slug: "{{slug}}"
     fields:
       - { label: "Active", name: "active", widget: "boolean", default: true }
       - { label: "Date", name: "date", widget: "string" }
       - { label: "Position", name: "position", widget: "string" }
-      - { label: "Vacancies", name: "vacancies", widget: "string", default: "০১ জন" }
+      - { label: "Vacancies", name: "vacancies", widget: "string" }
       - { label: "Education", name: "education", widget: "string" }
       - { label: "Age", name: "age", widget: "string" }
       - { label: "Training Period", name: "training_period", widget: "string", required: false }
       - { label: "Salary", name: "salary", widget: "string" }
       - { label: "Allowance", name: "allowance", widget: "string", required: false }
       - { label: "Total Salary", name: "total_salary", widget: "string" }
-      - label: "Special Requirements"
-        name: "special_requirements"
-        widget: "list"
-        field: { label: "Requirement", name: "requirement", widget: "string" }
-      - label: "Documents"
-        name: "documents"
-        widget: "list"
-        field: { label: "Document", name: "document", widget: "string" }
+      - { label: "Special Requirements", name: "special_requirements", widget: "list" }
+      - { label: "Documents", name: "documents", widget: "list" }
       - { label: "Deadline", name: "deadline", widget: "string" }
-      - { label: "Deadline Time", name: "deadline_time", widget: "string", default: "বিকাল ৫.০০ ঘটিকা" }
+      - { label: "Deadline Time", name: "deadline_time", widget: "string" }
       - { label: "Address", name: "address", widget: "text" }
       - { label: "Exam Location", name: "exam_location", widget: "string" }
       - { label: "Additional Info", name: "additional_info", widget: "text", required: false }
-
-  - name: jobs_manifest
-    label: "Jobs Manifest"
-    files:
-      - name: manifest
-        label: "Job Files List"
-        file: "_data/jobs-manifest.json"
-        fields:
-          - label: "Files"
-            name: "files"
-            widget: "list"
-            field: { label: "Filename", name: "file", widget: "string" }
 
   - name: projects
     label: "Projects"
@@ -61,12 +42,10 @@ collections:
     delete: true
     extension: json
     format: json
-    slug: "{{fields.order}}-{{slug}}"
     fields:
       - { label: "Active", name: "active", widget: "boolean", default: true }
       - { label: "Order", name: "order", widget: "number", default: 1 }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Bengali Title", name: "title_bn", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Stat 1 Number", name: "stat1_number", widget: "string" }
@@ -74,15 +53,30 @@ collections:
       - { label: "Stat 2 Number", name: "stat2_number", widget: "string", required: false }
       - { label: "Stat 2 Label", name: "stat2_label", widget: "string", required: false }
 
+  - name: gallery
+    label: "Gallery"
+    files:
+      - name: photos
+        label: "Photos"
+        file: "_data/gallery.json"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Active", name: "active", widget: "boolean", default: true }
+              - { label: "URL", name: "url", widget: "image" }
+              - { label: "Alt", name: "alt", widget: "string" }
+
   - name: other_activities
     label: "Other Activities"
     files:
       - name: activities
-        label: "Activities List"
+        label: "Activities"
         file: "_data/other-activities.json"
         fields:
           - { label: "Active", name: "active", widget: "boolean", default: true }
-          - { label: "Order", name: "order", widget: "number", default: 8 }
+          - { label: "Order", name: "order", widget: "number" }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }
           - label: "Activities"
@@ -91,32 +85,3 @@ collections:
             fields:
               - { label: "Active", name: "active", widget: "boolean", default: true }
               - { label: "Description", name: "description", widget: "string" }
-
-  - name: gallery
-    label: "Photo Gallery"
-    files:
-      - name: photos
-        label: "Gallery Photos"
-        file: "_data/gallery.json"
-        fields:
-          - label: "Images"
-            name: "images"
-            widget: "list"
-            fields:
-              - { label: "Active", name: "active", widget: "boolean", default: true }
-              - { label: "Image URL", name: "url", widget: "image" }
-              - { label: "Alt Text", name: "alt", widget: "string", default: "Activity" }
-
-  - name: settings
-    label: "Site Settings"
-    files:
-      - name: general
-        label: "General Settings"
-        file: "_data/settings.json"
-        fields:
-          - { label: "Organization Name", name: "org_name", widget: "string" }
-          - { label: "Full Name", name: "org_full_name", widget: "string" }
-          - { label: "MRA Number", name: "mra_number", widget: "string" }
-          - { label: "Phone", name: "phone", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Address", name: "address", widget: "text" }
