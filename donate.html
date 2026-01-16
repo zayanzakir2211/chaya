@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Donate - Chaya">
+  <meta property="og:description" content="Support Chaya NGO - Your donations help empower communities through education, healthcare, and sustainable development.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/zayanzakir2211/chaya/main/assets/logo.png">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <title>Donate - Chaya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      z-index: 1000;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 45px;
+    }
+
+    .nav-logo span {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0d5c2f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #0d5c2f;
+    }
+
+    .nav-links a.active {
+      color: #0d5c2f;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      z-index: 999;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+      padding: 8px 0;
+    }
+
+    /* Page Header */
+    .page-header {
+      margin-top: 70px;
+      position: relative;
+      height: 45vh;
+      min-height: 350px;
+      overflow: hidden;
+    }
+
+    .page-header img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-header-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgb(13, 92, 47);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .page-header h1 {
+      color: #fff;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,0.9);
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    /* Section */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      color: #0d5c2f;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: #666;
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Bank Details Card */
+    .bank-details {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 60px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .bank-header {
+      background: #0d5c2f;
+      color: #fff;
+      padding: 24px 32px;
+      text-align: center;
+    }
+
+    .bank-header h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .bank-header p {
+      opacity: 0.9;
+      font-size: 15px;
+    }
+
+    .bank-body {
+      padding: 40px;
+    }
+
+    .bank-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .bank-info-item {
+      background: #f8f9fa;
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 4px solid #0d5c2f;
+    }
+
+    .bank-info-item i {
+      color: #0d5c2f;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .bank-info-label {
+      font-size: 13px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .bank-info-value {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      word-break: break-all;
+    }
+
+    .bank-note {
+      margin-top: 30px;
+      padding: 20px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .bank-note i {
+      color: #0d5c2f;
+      margin-right: 8px;
+    }
+
+    /* Donations List */
+    .donations-section {
+      background: #f8f9fa;
+    }
+
+    .donations-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .donations-table-wrapper {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .donations-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .donations-table thead {
+      background: #0d5c2f;
+      color: #fff;
+    }
+
+    .donations-table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .donations-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    .donations-table tbody tr:hover {
+      background: #f8f9fa;
+    }
+
+    .donations-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .amount-cell {
+      font-weight: 600;
+      color: #0d5c2f;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .pagination button {
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .pagination button:hover:not(:disabled) {
+      background: #0d5c2f;
+      color: #fff;
+      border-color: #0d5c2f;
+    }
+
+    .pagination button.active {
+      background: #0d5c2f;
+      color: #fff;
+      border-color: #0d5c2f;
+    }
+
+    .pagination button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .page-info {
+      color: #666;
+      font-size: 14px;
+      margin: 0 16px;
+    }
+
+    /* Loading State */
+    .loading-state {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .loading-state i {
+      font-size: 48px;
+      color: #0d5c2f;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-state p {
+      margin-top: 20px;
+      color: #666;
+      font-size: 16px;
+    }
+
+    /* Error State */
+    .error-state {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff3f3;
+      border-radius: 12px;
+    }
+
+    .error-state i {
+      font-size: 48px;
+      color: #dc3545;
+      margin-bottom: 20px;
+    }
+
+    .error-state h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .error-state p {
+      color: #666;
+    }
+
+    /* No Donations State */
+    .no-donations {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
+      border-radius: 12px;
+    }
+
+    .no-donations i {
+      font-size: 48px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .no-donations h3 {
+      font-size: 20px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .no-donations p {
+      color: #888;
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 60px 40px 30px;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand img {
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #999;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .bank-body {
+        padding: 24px;
+      }
+
+      .bank-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .donations-table th,
+      .donations-table td {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .donations-table th:nth-child(2),
+      .donations-table td:nth-child(2) {
+        display: none;
+      }
+
+      .pagination button {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Chaya">
+        <span>Chaya</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#funds">Funds</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html#branches">Branches</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="niyog.html">Job Circular</a></li>
+        <li><a href="donate.html" class="active">Donate</a></li>
+      </ul>
+      <button class="menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#funds">Funds</a>
+    <a href="projects.html">Projects</a>
+    <a href="index.html#branches">Branches</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="niyog.html">Job Circular</a>
+    <a href="donate.html">Donate</a>
+  </div>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <img src="assets/IMG-20250605-WA0016.jpg" alt="Donate">
+    <div class="page-header-overlay">
+      <h1>Donate</h1>
+      <p>Your generosity helps us empower communities through education, healthcare, and sustainable development</p>
+    </div>
+  </header>
+
+  <!-- Bank Details Section -->
+  <section class="section">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-tag">Support Our Mission</p>
+        <h2 class="section-title">Bank Transfer Details</h2>
+        <p class="section-desc">You can make a donation via bank transfer using the details below</p>
+      </div>
+
+      <div class="bank-details">
+        <div class="bank-header">
+          <h2><i class="fas fa-university"></i> Bank Account Information</h2>
+          <p>For domestic and international transfers</p>
+        </div>
+        <div class="bank-body">
+          <div class="bank-info-grid">
+            <div class="bank-info-item">
+              <i class="fas fa-credit-card"></i>
+              <p class="bank-info-label">Account Number</p>
+              <p class="bank-info-value" id="accountNumber">Loading...</p>
+            </div>
+            <div class="bank-info-item">
+              <i class="fas fa-globe"></i>
+              <p class="bank-info-label">Routing Number (International)</p>
+              <p class="bank-info-value" id="routingNumber">Loading...</p>
+            </div>
+            <div class="bank-info-item">
+              <i class="fas fa-building-columns"></i>
+              <p class="bank-info-label">Bank Branch Name</p>
+              <p class="bank-info-value" id="branchName">Loading...</p>
+            </div>
+          </div>
+          <div class="bank-note">
+            <i class="fas fa-info-circle"></i>
+            Please include your name and "Chaya Donation" in the transfer reference for proper tracking.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donations List Section -->
+  <section class="section donations-section">
+    <div class="donations-container">
+      <div class="section-header">
+        <p class="section-tag">Our Supporters</p>
+        <h2 class="section-title">Recent Donations</h2>
+        <p class="section-desc">Thank you to all our generous donors who make our work possible</p>
+      </div>
+
+      <div id="donationsContainer">
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+          <i class="fas fa-spinner"></i>
+          <p>Loading donations...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error-state" id="errorState">
+          <i class="fas fa-exclamation-circle"></i>
+          <h3>Unable to Load Donations</h3>
+          <p>Please try again later or contact us for assistance.</p>
+        </div>
+
+        <!-- Donations Table -->
+        <div class="donations-table-wrapper" id="donationsTable" style="display: none;">
+          <table class="donations-table">
+            <thead>
+              <tr>
+                <th>Donator Name</th>
+                <th>Date</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="donationsBody">
+            </tbody>
+          </table>
+        </div>
+
+        <!-- No Donations State -->
+        <div class="no-donations" id="noDonations" style="display: none;">
+          <i class="fas fa-heart"></i>
+          <h3>No Donations Yet</h3>
+          <p>Be the first to support our cause!</p>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination" style="display: none;">
+        <button id="prevBtn" onclick="changePage(-1)">
+          <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <span class="page-info" id="pageInfo">Page 1 of 1</span>
+        <button id="nextBtn" onclick="changePage(1)">
+          Next <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Chaya">
+          <p>Center for Helping to Activate Youth and Adult - A non-political, voluntary social welfare organization dedicated to community development since 2015.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="projects.html">Our Projects</a></li>
+            <li><a href="index.html#branches">Branches</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Programs</h4>
+          <ul class="footer-links">
+            <li><a href="projects.html">Scholarships</a></li>
+            <li><a href="projects.html">Safe Water</a></li>
+            <li><a href="projects.html">Relief Work</a></li>
+            <li><a href="niyog.html">Job Circular</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Chaya. All rights reserved.</p>
+        <p>Developed by Zayan</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================
+    // CONFIGURATION - CHANGE THIS URL TO YOUR GOOGLE SHEET CSV URL
+    // ============================================================
+    // Sheet should have columns: account_number, routing_number, branch_name (for bank info, row 1 after header)
+    // And columns: donator_name, date, amount (for donations list)
+    const DONATIONS_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTaxwiytK-8x6hT-w2KNPpecd1VxzMiPvTB6oiyDGtw2c7eZxuGvox4YB5JP5cwwuKCfd0kI4gmKJhv/pub?gid=0&single=true&output=csv';
+    // Example: 'https://docs.google.com/spreadsheets/d/e/YOUR_SPREADSHEET_ID/pub?output=csv'
+    // ============================================================
+
+    // Pagination settings
+    const ITEMS_PER_PAGE = 20;
+    let currentPage = 1;
+    let allDonations = [];
+
+    /**
+     * Mobile menu toggle function
+     */
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('active');
+      });
+    });
+
+    // ============================================================
+    // CSV PARSER - Handles quoted fields and commas inside values
+    // ============================================================
+    
+    /**
+     * Parse CSV text into array of objects
+     * @param {string} csvText - Raw CSV text
+     * @returns {Array<Object>} - Array of row objects with headers as keys
+     */
+    function parseCSV(csvText) {
+      const rows = [];
+      let currentRow = [];
+      let currentField = '';
+      let insideQuotes = false;
+      
+      csvText = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+        
+        if (insideQuotes) {
+          if (char === '"') {
+            if (nextChar === '"') {
+              currentField += '"';
+              i++;
+            } else {
+              insideQuotes = false;
+            }
+          } else {
+            currentField += char;
+          }
+        } else {
+          if (char === '"') {
+            insideQuotes = true;
+          } else if (char === ',') {
+            currentRow.push(currentField.trim());
+            currentField = '';
+          } else if (char === '\n') {
+            currentRow.push(currentField.trim());
+            if (currentRow.length > 0 && currentRow.some(f => f !== '')) {
+              rows.push(currentRow);
+            }
+            currentRow = [];
+            currentField = '';
+          } else {
+            currentField += char;
+          }
+        }
+      }
+      
+      if (currentField || currentRow.length > 0) {
+        currentRow.push(currentField.trim());
+        if (currentRow.some(f => f !== '')) {
+          rows.push(currentRow);
+        }
+      }
+      
+      if (rows.length < 2) return [];
+      
+      const headers = rows[0];
+      const data = [];
+      
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          obj[headers[j]] = row[j] || '';
+        }
+        data.push(obj);
+      }
+      
+      return data;
+    }
+
+    /**
+     * Escape HTML special characters
+     * @param {string} text - Raw text
+     * @returns {string} - Escaped text
+     */
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    /**
+     * Format amount with currency
+     * @param {string} amount - Amount value
+     * @returns {string} - Formatted amount
+     */
+    function formatAmount(amount) {
+      if (!amount) return '-';
+      // Remove any existing currency symbols and format
+      const numericAmount = amount.replace(/[^\d.-]/g, '');
+      if (isNaN(numericAmount) || numericAmount === '') return escapeHtml(amount);
+      return '৳ ' + parseFloat(numericAmount).toLocaleString('en-BD');
+    }
+
+    /**
+     * Render donations table for current page
+     */
+    function renderDonations() {
+      const tbody = document.getElementById('donationsBody');
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const pageData = allDonations.slice(startIndex, endIndex);
+
+      tbody.innerHTML = pageData.map(donation => `
+        <tr>
+          <td>${escapeHtml(donation.donator_name || donation.name || '-')}</td>
+          <td>${escapeHtml(donation.date || '-')}</td>
+          <td class="amount-cell">${formatAmount(donation.amount)}</td>
+        </tr>
+      `).join('');
+
+      updatePagination();
+    }
+
+    /**
+     * Update pagination controls
+     */
+    function updatePagination() {
+      const totalPages = Math.ceil(allDonations.length / ITEMS_PER_PAGE);
+      const pageInfo = document.getElementById('pageInfo');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages;
+    }
+
+    /**
+     * Change page
+     * @param {number} direction - 1 for next, -1 for previous
+     */
+    function changePage(direction) {
+      const totalPages = Math.ceil(allDonations.length / ITEMS_PER_PAGE);
+      const newPage = currentPage + direction;
+      
+      if (newPage >= 1 && newPage <= totalPages) {
+        currentPage = newPage;
+        renderDonations();
+        
+        // Scroll to top of donations section
+        document.getElementById('donationsContainer').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /**
+     * Load bank details and donations from Google Sheet
+     */
+    async function loadDonationsData() {
+      const loadingState = document.getElementById('loadingState');
+      const errorState = document.getElementById('errorState');
+      const donationsTable = document.getElementById('donationsTable');
+      const noDonations = document.getElementById('noDonations');
+      const pagination = document.getElementById('pagination');
+
+      // Show loading
+      loadingState.style.display = 'block';
+      errorState.style.display = 'none';
+      donationsTable.style.display = 'none';
+      noDonations.style.display = 'none';
+      pagination.style.display = 'none';
+
+      try {
+        // Check if URL is configured
+        if (DONATIONS_SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE' || !DONATIONS_SHEET_CSV_URL) {
+          throw new Error('Google Sheet URL not configured');
+        }
+
+        // Fetch CSV data with cache-busting
+        const cacheBuster = '&_t=' + Date.now();
+        const fetchUrl = DONATIONS_SHEET_CSV_URL + cacheBuster;
+
+        const response = await fetch(fetchUrl, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const csvText = await response.text();
+        const data = parseCSV(csvText);
+
+        // Hide loading
+        loadingState.style.display = 'none';
+
+        if (data.length === 0) {
+          noDonations.style.display = 'block';
+          return;
+        }
+
+        // Get bank details from first row (if available)
+        const firstRow = data[0];
+        if (firstRow.account_number) {
+          document.getElementById('accountNumber').textContent = firstRow.account_number;
+        }
+        if (firstRow.routing_number) {
+          document.getElementById('routingNumber').textContent = firstRow.routing_number;
+        }
+        if (firstRow.branch_name) {
+          document.getElementById('branchName').textContent = firstRow.branch_name;
+        }
+
+        // Filter donations (rows that have donator_name or name)
+        allDonations = data.filter(row => row.donator_name || row.name);
+
+        if (allDonations.length === 0) {
+          noDonations.style.display = 'block';
+          return;
+        }
+
+        // Show donations table and pagination
+        donationsTable.style.display = 'block';
+        if (allDonations.length > ITEMS_PER_PAGE) {
+          pagination.style.display = 'flex';
+        }
+
+        // Render first page
+        renderDonations();
+
+      } catch (error) {
+        console.error('Error loading donations data:', error);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+
+        // Set placeholder text for bank details
+        document.getElementById('accountNumber').textContent = 'Contact us for details';
+        document.getElementById('routingNumber').textContent = 'Contact us for details';
+        document.getElementById('branchName').textContent = 'Contact us for details';
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', loadDonationsData);
+  </script>
+</body>
+</html>
