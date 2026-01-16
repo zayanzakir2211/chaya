@@ -329,6 +329,86 @@
       font-size: 15px;
     }
 
+    /* Loading State */
+    .loading-state {
+      text-align: center;
+      padding: 80px 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .loading-state i {
+      font-size: 48px;
+      color: #0d5c2f;
+      margin-bottom: 20px;
+    }
+
+    .loading-state p {
+      color: #666;
+      font-size: 18px;
+    }
+
+    /* Error State */
+    .error-state {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff5f5;
+      border: 1px solid #fed7d7;
+      border-radius: 12px;
+    }
+
+    .error-state i {
+      font-size: 48px;
+      color: #e53e3e;
+      margin-bottom: 20px;
+    }
+
+    .error-state h3 {
+      font-size: 22px;
+      color: #c53030;
+      margin-bottom: 10px;
+    }
+
+    .error-state p {
+      color: #742a2a;
+      margin-bottom: 20px;
+    }
+
+    .retry-btn {
+      background: #0d5c2f;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: 'Noto Sans Bengali', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .retry-btn:hover {
+      background: #094a25;
+    }
+
+    /* Expired Badge */
+    .expired-badge {
+      display: inline-block;
+      background: #e53e3e;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    .job-card.expired {
+      opacity: 0.7;
+    }
+
+    .job-card.expired .job-header {
+      background: #718096;
+    }
+
     /* Contact Section */
     .contact-section {
       background: #f8f9fa;
@@ -554,101 +634,24 @@
     </div>
   </header>
 
-  <!-- Job Circulars - Static Content -->
+  <!-- Job Circulars - Dynamic Content from Google Sheets -->
   <section class="section">
-    <div class="section-container">
-      <!-- Job Card -->
-      <div class="job-card">
-        <div class="job-header">
-          <h2>ঋণ কর্মকর্তা নিয়োগ</h2>
-          <p>তারিখ: ০৩-০৮-২০২৫</p>
-        </div>
-
-        <div class="job-body">
-          <!-- About Organization -->
-          <div class="job-section">
-            <h3>সংস্থা সম্পর্কে</h3>
-            <p>"ছায়া" একটি বেসরকারী উন্নয়নমূলক সংস্থা যা, ২০১৫ সাল হতে দরিদ্র জনগোষ্ঠীর জীবনযাত্রার মান উন্নয়নের লক্ষ্যে কার্যক্রম বাস্তবায়ন করে আসছে। সংস্থা মাইক্রোক্রেডিট রেগুলেটরী অথরিটি (এমআরএ) এর সাময়িক অনুমোদন নং: ২০২৩০২১৭৭।</p>
-          </div>
-
-          <!-- Job Info -->
-          <div class="job-section">
-            <h3>পদের বিবরণ</h3>
-            <div class="job-info-grid">
-              <div class="job-info-item">
-                <p class="job-info-label">পদের নাম</p>
-                <p class="job-info-value">ঋণ কর্মকর্তা</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">পদের সংখ্যা</p>
-                <p class="job-info-value">০১ জন</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">কর্মস্থল</p>
-                <p class="job-info-value">রৌমারী, কুড়িগ্রাম</p>
-              </div>
-              <div class="job-info-item">
-                <p class="job-info-label">আবেদনের শেষ তারিখ</p>
-                <p class="job-info-value">২০ আগস্ট ২০২৫</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Requirements -->
-          <div class="job-section">
-            <h3>শিক্ষাগত যোগ্যতা ও বয়স</h3>
-            <ul>
-              <li>শিক্ষাগত যোগ্যতা: এইচএসসি / স্নাতক</li>
-              <li>বয়স: সর্বোচ্চ ৩২ বছর</li>
-              <li>প্রার্থীর বৈধ ড্রাইভিং লাইসেন্স সহ মোটরসাইকেল থাকতে হবে</li>
-              <li>মাঠ পর্যায়ে মোটরসাইকেল চালাতে হবে</li>
-              <li>নারী প্রার্থীদের অগ্রাধিকার দেয়া হবে</li>
-            </ul>
-          </div>
-
-          <!-- Salary -->
-          <div class="job-section">
-            <h3>বেতন ভাতা</h3>
-            <div class="salary-box">
-              <strong>প্রশিক্ষণকাল:</strong> ৬ মাস<br>
-              <strong>প্রশিক্ষণকালে বেতন:</strong> ১০,০০০/- টাকা<br>
-              <strong>ভাতা:</strong> মোটরসাইকেল ভাতা ২,০০০/-<br>
-              <strong>সর্বসাকুল্যে:</strong> ১২,০০০/- টাকা<br><br>
-              <span class="salary-highlight">সফলভাবে প্রশিক্ষণ সম্পন্ন করলে সংস্থার নিয়ম অনুযায়ী স্থায়ী করণ করা হবে।</span>
-            </div>
-          </div>
-
-          <!-- How to Apply -->
-          <div class="job-section">
-            <h3>আবেদন প্রক্রিয়া</h3>
-            <p style="margin-bottom: 20px;">আবেদনকারী নির্বাহী পরিচালক বরাবর লিখিত আবেদন পত্রের সাথে নিম্নোক্ত কাগজপত্র জমা দিতে হবে:</p>
-            <ul>
-              <li>পূর্ণ জীবন বৃত্তান্ত (মোবাইল নাম্বার উল্লেখসহ)</li>
-              <li>০২ (দুই) কপি সদ্য তোলা পাসপোর্ট সাইজ রঙিন ছবি</li>
-              <li>জাতীয় পরিচয় পত্রের ফটোকপি</li>
-              <li>বৈধ ড্রাইভিং লাইসেন্সের ফটোকপি</li>
-              <li>শিক্ষাগত যোগ্যতা সনদের ফটোকপি</li>
-            </ul>
-          </div>
-
-          <!-- Submission Details -->
-          <div class="job-section">
-            <h3>আবেদন জমা</h3>
-            <div class="submission-box">
-              <strong>ঠিকানা:</strong> 'ছায়া', কর্তিমারী, যাদুরচর, রৌমারী, কুড়িগ্রাম<br>
-              <strong>শেষ তারিখ:</strong> ২০ আগস্ট ২০২৫ ইং, বিকাল ৫.০০ ঘটিকা পর্যন্ত<br>
-              <strong>জমার পদ্ধতি:</strong> ডাক/কুরিয়ার/সরাসরি প্রেরণ করা যাবে<br>
-              <strong>পরীক্ষার স্থান:</strong> 'ছায়া', প্রধান কার্যালয়, কর্তিমারী বাজার, যাদুরচর, রৌমারী, কুড়িগ্রাম
-            </div>
-          </div>
-
-          <!-- Notice -->
-          <div class="notice-box">
-            <h4><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h4>
-            <p>শুধুমাত্র বাছাইকৃত প্রার্থীদের নিয়োগ পরীক্ষায় অংশগ্রহণের জন্য ডাকা হবে। নারী প্রার্থীদের অগ্রাধিকার দেয়া হবে।</p>
-          </div>
-        </div>
+    <div class="section-container" id="jobContainer">
+      <!-- Loading State -->
+      <div class="loading-state" id="loadingState">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>বিজ্ঞপ্তি লোড হচ্ছে...</p>
       </div>
+      
+      <!-- Error State (hidden by default) -->
+      <div class="error-state" id="errorState" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <h3>দুঃখিত, তথ্য লোড করতে সমস্যা হয়েছে</h3>
+        <p>অনুগ্রহ করে পরে আবার চেষ্টা করুন অথবা সরাসরি যোগাযোগ করুন।</p>
+        <button onclick="loadJobCirculars()" class="retry-btn">আবার চেষ্টা করুন</button>
+      </div>
+      
+      <!-- Job cards will be rendered here dynamically -->
     </div>
   </section>
 
@@ -713,6 +716,16 @@
   </footer>
 
   <script>
+    // ============================================================
+    // CONFIGURATION - CHANGE THIS URL TO YOUR GOOGLE SHEET CSV URL
+    // ============================================================
+    const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRajq9piYT_Q7Owy_22zhxCxuP2Vsp667gyWS4CEIWH-JjE2fNjPzLO5rjBF1sNAJrMPMLZ9ogo8e0R/pub?gid=0&single=true&output=csv';
+    // Example: 'https://docs.google.com/spreadsheets/d/e/YOUR_SPREADSHEET_ID/pub?output=csv'
+    // ============================================================
+
+    /**
+     * Mobile menu toggle function
+     */
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('active');
     }
@@ -722,6 +735,350 @@
         document.getElementById('mobileMenu').classList.remove('active');
       });
     });
+
+    // ============================================================
+    // CSV PARSER - Handles quoted fields and commas inside values
+    // ============================================================
+    
+    /**
+     * Parse CSV text into array of objects
+     * Handles: quoted fields, commas inside quotes, newlines, UTF-8 Bangla text
+     * @param {string} csvText - Raw CSV text
+     * @returns {Array<Object>} - Array of row objects with headers as keys
+     */
+    function parseCSV(csvText) {
+      const rows = [];
+      let currentRow = [];
+      let currentField = '';
+      let insideQuotes = false;
+      
+      // Normalize line endings
+      csvText = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+      
+      for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+        
+        if (insideQuotes) {
+          // Inside quoted field
+          if (char === '"') {
+            if (nextChar === '"') {
+              // Escaped quote ("") -> add single quote
+              currentField += '"';
+              i++; // Skip next quote
+            } else {
+              // End of quoted field
+              insideQuotes = false;
+            }
+          } else {
+            currentField += char;
+          }
+        } else {
+          // Outside quoted field
+          if (char === '"') {
+            // Start of quoted field
+            insideQuotes = true;
+          } else if (char === ',') {
+            // Field separator
+            currentRow.push(currentField.trim());
+            currentField = '';
+          } else if (char === '\n') {
+            // Row separator
+            currentRow.push(currentField.trim());
+            if (currentRow.length > 0 && currentRow.some(f => f !== '')) {
+              rows.push(currentRow);
+            }
+            currentRow = [];
+            currentField = '';
+          } else {
+            currentField += char;
+          }
+        }
+      }
+      
+      // Handle last field and row
+      if (currentField || currentRow.length > 0) {
+        currentRow.push(currentField.trim());
+        if (currentRow.some(f => f !== '')) {
+          rows.push(currentRow);
+        }
+      }
+      
+      // Convert to array of objects using first row as headers
+      if (rows.length < 2) return [];
+      
+      const headers = rows[0];
+      const data = [];
+      
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const obj = {};
+        for (let j = 0; j < headers.length; j++) {
+          obj[headers[j]] = row[j] || '';
+        }
+        data.push(obj);
+      }
+      
+      return data;
+    }
+
+    // ============================================================
+    // DATE UTILITIES
+    // ============================================================
+    
+    /**
+     * Parse date string in DD-MM-YYYY format to Date object
+     * @param {string} dateStr - Date string like "20-08-2025"
+     * @returns {Date|null} - Date object or null if invalid
+     */
+    function parseDate(dateStr) {
+      if (!dateStr) return null;
+      const parts = dateStr.split('-');
+      if (parts.length !== 3) return null;
+      const day = parseInt(parts[0], 10);
+      const month = parseInt(parts[1], 10) - 1; // Months are 0-indexed
+      const year = parseInt(parts[2], 10);
+      if (isNaN(day) || isNaN(month) || isNaN(year)) return null;
+      return new Date(year, month, day);
+    }
+
+    /**
+     * Check if a deadline date has passed
+     * @param {string} deadlineStr - Deadline date string in DD-MM-YYYY format
+     * @returns {boolean} - True if expired
+     */
+    function isExpired(deadlineStr) {
+      const deadline = parseDate(deadlineStr);
+      if (!deadline) return false;
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return deadline < today;
+    }
+
+    // ============================================================
+    // HTML RENDERING
+    // ============================================================
+    
+    /**
+     * Convert newline-separated text to HTML list items
+     * @param {string} text - Text with items separated by newlines
+     * @returns {string} - HTML list items
+     */
+    function textToListItems(text) {
+      if (!text) return '';
+      return text.split('\n')
+        .map(item => item.trim())
+        .filter(item => item !== '')
+        .map(item => `<li>${escapeHtml(item)}</li>`)
+        .join('');
+    }
+
+    /**
+     * Convert newline-separated text to HTML with <br> tags
+     * @param {string} text - Text with newlines
+     * @returns {string} - HTML with line breaks
+     */
+    function textToHtmlBreaks(text) {
+      if (!text) return '';
+      return escapeHtml(text).replace(/\n/g, '<br>');
+    }
+
+    /**
+     * Escape HTML special characters to prevent XSS
+     * @param {string} text - Raw text
+     * @returns {string} - Escaped text
+     */
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    /**
+     * Render a single job card HTML
+     * @param {Object} job - Job data object from parsed CSV
+     * @returns {string} - HTML string for job card
+     */
+    function renderJobCard(job) {
+      const expired = isExpired(job.deadline_date);
+      const expiredClass = expired ? 'expired' : '';
+      const expiredBadge = expired ? '<span class="expired-badge">মেয়াদ উত্তীর্ণ</span>' : '';
+
+      return `
+        <div class="job-card ${expiredClass}">
+          <div class="job-header">
+            <h2>${escapeHtml(job.job_title)}${expiredBadge}</h2>
+            <p>তারিখ: ${escapeHtml(job.publish_date)}</p>
+          </div>
+
+          <div class="job-body">
+            <!-- About Organization -->
+            <div class="job-section">
+              <h3>সংস্থা সম্পর্কে</h3>
+              <p>${escapeHtml(job.about_organization)}</p>
+            </div>
+
+            <!-- Job Info -->
+            <div class="job-section">
+              <h3>পদের বিবরণ</h3>
+              <div class="job-info-grid">
+                <div class="job-info-item">
+                  <p class="job-info-label">পদের নাম</p>
+                  <p class="job-info-value">${escapeHtml(job.position_name)}</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">পদের সংখ্যা</p>
+                  <p class="job-info-value">${escapeHtml(job.vacancy_count)}</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">কর্মস্থল</p>
+                  <p class="job-info-value">${escapeHtml(job.work_location)}</p>
+                </div>
+                <div class="job-info-item">
+                  <p class="job-info-label">আবেদনের শেষ তারিখ</p>
+                  <p class="job-info-value">${escapeHtml(job.deadline_display)}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Requirements -->
+            <div class="job-section">
+              <h3>শিক্ষাগত যোগ্যতা ও বয়স</h3>
+              <ul>
+                ${textToListItems(job.requirements)}
+              </ul>
+            </div>
+
+            <!-- Salary -->
+            <div class="job-section">
+              <h3>বেতন ভাতা</h3>
+              <div class="salary-box">
+                ${textToHtmlBreaks(job.salary_details)}
+              </div>
+            </div>
+
+            <!-- How to Apply -->
+            <div class="job-section">
+              <h3>আবেদন প্রক্রিয়া</h3>
+              <p style="margin-bottom: 20px;">${escapeHtml(job.application_intro)}</p>
+              <ul>
+                ${textToListItems(job.required_documents)}
+              </ul>
+            </div>
+
+            <!-- Submission Details -->
+            <div class="job-section">
+              <h3>আবেদন জমা</h3>
+              <div class="submission-box">
+                ${textToHtmlBreaks(job.submission_details)}
+              </div>
+            </div>
+
+            <!-- Notice -->
+            ${job.notice_text ? `
+            <div class="notice-box">
+              <h4><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h4>
+              <p>${escapeHtml(job.notice_text)}</p>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * Render "No jobs available" message
+     * @returns {string} - HTML for no jobs state
+     */
+    function renderNoJobs() {
+      return `
+        <div class="no-jobs">
+          <i class="fas fa-briefcase"></i>
+          <h3>বর্তমানে কোন নিয়োগ বিজ্ঞপ্তি নেই</h3>
+          <p>নতুন বিজ্ঞপ্তি প্রকাশিত হলে এখানে দেখানো হবে। পরে আবার চেক করুন।</p>
+        </div>
+      `;
+    }
+
+    // ============================================================
+    // MAIN FUNCTION - LOAD AND DISPLAY JOB CIRCULARS
+    // ============================================================
+    
+    /**
+     * Fetch job circulars from Google Sheet CSV and render them
+     */
+    async function loadJobCirculars() {
+      const container = document.getElementById('jobContainer');
+      const loadingState = document.getElementById('loadingState');
+      const errorState = document.getElementById('errorState');
+
+      // Show loading, hide error
+      loadingState.style.display = 'block';
+      errorState.style.display = 'none';
+
+      // Remove any previously rendered job cards
+      const existingCards = container.querySelectorAll('.job-card, .no-jobs');
+      existingCards.forEach(card => card.remove());
+
+      try {
+        // Check if URL is configured
+        if (SHEET_CSV_URL === 'YOUR_GOOGLE_SHEET_CSV_URL_HERE' || !SHEET_CSV_URL) {
+          throw new Error('Google Sheet URL not configured');
+        }
+
+        // Add cache-busting timestamp to force fresh data on every refresh
+        const cacheBuster = '&_t=' + Date.now();
+        const fetchUrl = SHEET_CSV_URL + cacheBuster;
+
+        // Fetch CSV data with no-cache headers
+        const response = await fetch(fetchUrl, {
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const csvText = await response.text();
+        
+        // Parse CSV to array of objects
+        const allJobs = parseCSV(csvText);
+
+        // Filter: only show rows where status = "published"
+        const publishedJobs = allJobs.filter(job => 
+          job.status && job.status.toLowerCase() === 'published'
+        );
+
+        // Hide loading state
+        loadingState.style.display = 'none';
+
+        // Render jobs or "no jobs" message
+        if (publishedJobs.length === 0) {
+          container.insertAdjacentHTML('beforeend', renderNoJobs());
+        } else {
+          // Render each job card (order preserved from sheet)
+          publishedJobs.forEach(job => {
+            container.insertAdjacentHTML('beforeend', renderJobCard(job));
+          });
+        }
+
+      } catch (error) {
+        console.error('Error loading job circulars:', error);
+        
+        // Hide loading, show error
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+      }
+    }
+
+    // ============================================================
+    // INITIALIZE ON PAGE LOAD
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', loadJobCirculars);
   </script>
 </body>
 </html>
