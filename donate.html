@@ -276,7 +276,8 @@
       font-size: 18px;
       font-weight: 600;
       color: #1a1a1a;
-      word-break: break-all;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .bank-note {
@@ -659,13 +660,13 @@
             </div>
             <div class="bank-info-item">
               <i class="fas fa-globe"></i>
-              <p class="bank-info-label">Routing Number (International)</p>
-              <p class="bank-info-value" id="routingNumber">Loading...</p>
+              <p class="bank-info-label">Account Name</p>
+              <p class="bank-info-value" id="accountName">Loading...</p>
             </div>
             <div class="bank-info-item">
               <i class="fas fa-building-columns"></i>
-              <p class="bank-info-label">Bank Branch Name</p>
-              <p class="bank-info-value" id="branchName">Loading...</p>
+              <p class="bank-info-label">Bank Address</p>
+              <p style="font-size: 14px;" class="bank-info-value" id="branchName">Loading...</p>
             </div>
           </div>
           <div class="bank-note">
@@ -1004,15 +1005,15 @@
         if (firstRow.account_number) {
           document.getElementById('accountNumber').textContent = firstRow.account_number;
         }
-        if (firstRow.routing_number) {
-          document.getElementById('routingNumber').textContent = firstRow.routing_number;
+        if (firstRow.account_name) {
+          document.getElementById('accountName').textContent = firstRow.account_name;
         }
-        if (firstRow.branch_name) {
-          document.getElementById('branchName').textContent = firstRow.branch_name;
+        if (firstRow.branch_address) {
+          document.getElementById('branchName').textContent = firstRow.branch_address;
         }
 
-        // Filter donations (rows that have donator_name or name)
-        allDonations = data.filter(row => row.donator_name || row.name);
+        // Filter donations (rows that have donator_name or name) and reverse to show newest first
+        allDonations = data.filter(row => row.donator_name || row.name).reverse();
 
         if (allDonations.length === 0) {
           noDonations.style.display = 'block';
